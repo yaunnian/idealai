@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+  table{
+      margin: 0 auto;
+  }
+
+        tr td{
+            font-family: 楷体;
+            font-size: 25px;
+            text-align: center;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <h1  align="center" style="color:firebrick">
+        当年屠龙的勇士 身上亦是生出了恶鳞
+    </h1>
+    <table border="1px">
+        <div id="div">
+        <tr>
+            <td>id</td>
+            <td>username</td>
+            <td>password</td>
+            <td>name</td>
+            <td>age</td>
+            <td>sex</td>
+            <td>birthday</td>
+            <td>note</td>
+            <td>created</td>
+            <td>updated</td>
+            <td colspan="2">操作&nbsp;&nbsp;<a href="add">添加</a></td>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">id</td>
+            <td th:text="${user.userName}">username</td>
+            <td th:text="${user.password}">password</td>
+            <td th:text="${user.name}">name</td>
+            <td th:text="${user.age}">age</td>
+            <td th:text="${user.sex} == 1 ? '男':'女'">sex</td>
+            <td th:text="${#dates.format(user.birthday,'yyyy-MM-dd')}">birthday</td>
+            <td th:text="${user.note}">note</td>
+            <td th:text="${#dates.format(user.created,'yyyy-MM-dd')}">create</td>
+            <td th:text="${#dates.format(user.updated,'yyyy-MM-dd')}">update</td>
+            <td>
+                <a>删除</a>
+                <a>修改</a>
+            </td>
+        </tr>
+        </div>
+    </table>
+</body>
+</html>
