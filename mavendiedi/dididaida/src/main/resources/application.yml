@@ -1,0 +1,12 @@
+server:
+  port: 9998
+spring:
+  application:
+    name: eurekaServer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 1000
